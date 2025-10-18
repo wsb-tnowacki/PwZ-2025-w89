@@ -8,12 +8,12 @@ class OgolneController extends Controller
 {
    public function start()
    {
-    return view('welcome');
+    return view('ogolne.start');
    }
 
    public function kontakt()
    {
-    return view('kontakt');
+    return view('ogolne.kontakt');
    }
 
    public function onas()
@@ -28,6 +28,6 @@ class OgolneController extends Controller
     ];
     // return view('onas', ['zadania'=> $zadania]);
     // return view('onas')->with('zadania', $zadania)->with('tasks', $tasks);
-    return view('onas', compact('zadania', 'tasks'));
+    return view('ogolne.onas', compact('zadania', 'tasks'));
    }
 }
