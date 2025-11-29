@@ -36,6 +36,12 @@ class PostController extends Controller
         $post->email = request('email');
         $post->tresc = request('tresc');
         $post->save(); */
+        $request->validate([
+        'tytul' => 'required|min:5|max:200',
+        'autor' => 'required|min:3|max:100',
+        'email' => 'required|min:5|email:rfc,dns|max:200',
+        'tresc' => 'required|min:5'
+        ]);
         Post::create($request->all());
         return redirect(route('post.index'));
     }
@@ -45,7 +51,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('post.pokaz',compact('post'));
     }
 
     /**
@@ -53,7 +59,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('post.edytuj',compact('post'));
     }
 
     /**
@@ -61,7 +67,8 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->update($request->all());
+        return redirect(route('post.index'));
     }
 
     /**
@@ -69,6 +76,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect(route('post.index'));
     }
 }
