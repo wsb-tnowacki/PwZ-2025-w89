@@ -15,6 +15,10 @@
             <input type="email" name="email" id="email" value="{{$post->email}}" placeholder="Podaj email autora postu" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required disabled>
         </div>
         <div class="mb-2">
+        <label for="data" class="block text-gray-700 font-bold mb-2">Daty:</label>
+            <div class=" appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline">
+                Data utworzenia: <b>{{$post->created_at->locale('pl')->setTimezone('Europe/Warsaw')->translatedFormat('j F Y H:i:s')}}</b> <br>
+                Data edycji: <b>{{$post->updated_at->locale('pl')->setTimezone('Europe/Warsaw')->translatedFormat('j F Y H:i:s')}}</div>
             <label for="tresc" class="block text-gray-700 font-bold mb-2">Treść</label>
             <textarea name="tresc" id="tresc" rows="4" placeholder="Wpisz treść posta" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required disabled>{{$post->tresc}}</textarea>
         </div>

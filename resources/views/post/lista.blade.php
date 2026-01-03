@@ -23,7 +23,7 @@
                         <td class="border border-gray-300 px-4 py-2">{{$lp++}}</td>
                         <td class="border border-gray-300 px-4 py-2"><a href="{{route('post.show', $post['id'])}}">{{$post->tytul}}</a></td>
                         <td class="border border-gray-300 px-4 py-2">{{$post->autor}}</td>
-                        <td class="border border-gray-300 px-4 py-2">{{$post->created_at->setTimezone('Europe/Warsaw')->format('j F Y H:i')}}</td>
+                        <td class="border border-gray-300 px-4 py-2">{{$post->created_at->locale('pl')->setTimezone('Europe/Warsaw')->translatedFormat('j F Y')}}</td>
                         @auth
                             <td class="border border-gray-300 px-4 py-2">
                                 <div class="flex items-center gap-x-2">
