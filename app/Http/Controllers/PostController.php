@@ -44,7 +44,7 @@ class PostController extends Controller
         'tresc' => 'required|min:5'
         ]); */
         Post::create($request->all());
-        return redirect(route('post.index'));
+        return redirect(route('post.index'))->with('message',"Dodano poprawnie post");
     }
 
     /**
@@ -75,7 +75,7 @@ class PostController extends Controller
         'tresc' => 'required|min:5'
         ]); */
         $post->update($request->all());
-        return redirect(route('post.index'));
+        return redirect(route('post.index'))->with('message',"Zmieniono poprawnie post");
     }
 
     /**
@@ -84,6 +84,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect(route('post.index'));
+        return redirect(route('post.index'))->with('message',"Usunięto poprawnie post")->with('color',"red");
     }
 }
